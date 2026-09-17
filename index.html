@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -534,5 +535,26 @@
                 </div>
             </section>
         </main>
-    </body>
+    
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.querySelector('.search-bar');
+    const searchButton = document.querySelector('.search-button');
+
+    function openYouTubeSearch() {
+      const query = searchInput ? searchInput.value.trim() : '';
+      if (!query) return;
+      window.open('https://www.youtube.com/results?search_query=' + encodeURIComponent(query), '_blank', 'noopener');
+    }
+
+    if (searchButton) searchButton.addEventListener('click', openYouTubeSearch);
+    if (searchInput) {
+      searchInput.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') openYouTubeSearch();
+      });
+    }
+  });
+</script>
+
+</body>
 </html>
